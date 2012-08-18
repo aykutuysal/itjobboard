@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head> 
+		<title>Signup Page</title> 
+	</head> 
+	<body>
+	 
+		<h1>Login page</h1> 
+		<p th:if="${duplicateEmailError}">Already registered!</p>
+		
+		<p th:if="${signupSuccess}">Signup successful. Check your email.</p>
+		 
+	
+		<form th:action="@{/user/register}" method="post"> 
+			<label for="email">Email : </label>: 
+			<input type="text" id="email" name="email" /> <br /> 
+			<label for="password">Password : </label>: 
+			<input type="password" id="password" name="password" /> <br />
+			<label for="re_password">Password Again : </label>: 
+			<input type="password" id="re_password" name="re_password" /> <br />
+			<input type="submit" value="Signup" /> 
+		</form>
+		
+	</body> 
+</html> 

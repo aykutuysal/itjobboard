@@ -1,0 +1,25 @@
+.headerContainer
+{
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  height:30px;
+}
+
+.headerLinks
+{
+  float:right;
+  margin-top:10px;
+  text-transform:uppercase;
+}
+
+.headerLink
+{
+  font-size:16px;
+  margin-left:12px;
+  color:black;
+}
+
+.container{width:940px;margin-left:auto;margin-right:auto;*zoom:1;}.container:before,.container:after{display:table;content:"";}
+.container:after{clear:both;}
+.container-fluid{padding-left:20px;padding-right:20px;*zoom:1;}.container-fluid:before,.container-fluid:after{display:table;content:"";}
+.container-fluid:after{clear:both;}
