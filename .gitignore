@@ -1,0 +1,9 @@
++.build-path
++.project
++.settings/
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.class
+targer/*
