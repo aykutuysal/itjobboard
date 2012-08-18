@@ -6,5 +6,4 @@
 *.swp
 *.out
 *.class
-targer/*
 /target
