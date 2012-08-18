@@ -29,6 +29,9 @@ public class User implements Serializable {
 	private String password;
 	private String firstName;
 	private String lastName;
+	private String title;
+	private String phone;
+	private String countryId;
 	private String role;
 	private Boolean enabled;
 	
@@ -36,6 +39,9 @@ public class User implements Serializable {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Application> applications;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	private List<Resume> resumes;
 	
 	public User() {
 		this.role = "ROLE_USER";
@@ -111,5 +117,37 @@ public class User implements Serializable {
 
 	public void setApplications(List<Application> applications) {
 		this.applications = applications;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(String countryId) {
+		this.countryId = countryId;
+	}
+
+	public List<Resume> getResumes() {
+		return resumes;
+	}
+
+	public void setResumes(List<Resume> resumes) {
+		this.resumes = resumes;
 	}
 }

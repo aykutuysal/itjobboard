@@ -24,6 +24,12 @@ public class UserController {
 							String email,
 							String password ) {
 		
+		
+		
+		
+		
+		
+		
 		System.out.println("email : " + email);
 		System.out.println("password : " + password);
 		

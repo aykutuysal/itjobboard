@@ -1,7 +1,6 @@
 package aykutuysal.itjobboard.controller;
 
 import java.security.Principal;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import aykutuysal.itjobboard.dao.ApplicationDao;
-import aykutuysal.itjobboard.dao.ListingDao;
-import aykutuysal.itjobboard.model.Application;
-import aykutuysal.itjobboard.model.Listing;
 import aykutuysal.itjobboard.service.ListingService;
 
 @Controller

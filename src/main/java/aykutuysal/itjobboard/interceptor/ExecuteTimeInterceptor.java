@@ -25,8 +25,10 @@ public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter{
 		long endTime = System.currentTimeMillis();
 		long executeTime = endTime - startTime;
  
-		modelAndView.addObject("executeTime",executeTime);
- 
+		if(modelAndView != null ) {
+			modelAndView.addObject("executeTime",executeTime);
+		}
+		
 		if(logger.isDebugEnabled()){
 		   logger.debug("[" + handler + "] executeTime : " + executeTime + "ms");
 		}
