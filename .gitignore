@@ -1,9 +1,4 @@
-+.build-path
-+.project
-+.settings/
-*.lock
-*.DS_Store
-*.swp
-*.out
-*.class
+.build-path
+.project
+.settings/
 /target
