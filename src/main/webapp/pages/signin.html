@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head th:substituteby="fragment/common::headFragment">
+</head>
+
+<body>
+
+	<div class="container">
+		<section th:substituteby="fragment/common::navbarFragment"></section>
+		
+		<div class="row-fluid">
+			
+			<div class="span6">
+				
+						
+				<form class="well" th:action="@{/j_spring_security_check}" method="post">
+					<fieldset>
+					<legend>Sign In</legend>
+					
+							<div id="signinError" th:if="${signinError}" class="alert alert-error">
+								<a class="close" data-dismiss="alert" href="#">&times;</a>
+								Wrong Username/Email and password combination.
+							</div>
+												
+							<div class="control-group">
+								<div class="controls">					
+									<div class="input-prepend">
+										<span class="add-on"><i class="icon-envelope"></i></span>
+										<input class="span7" id="j_username" name="j_username" type="text" placeholder="Email Address" />
+									</div>
+								</div>
+							</div>
+							
+							<div class="control-group">
+								<div class="controls">					
+									<div class="input-prepend">
+										<span class="add-on"><i class="icon-cog"></i></span>
+										<input class="span7" id="j_password" name="j_password" type="password" placeholder="Password" />
+									</div>
+								</div>
+							</div>
+							
+							<button type="submit" class="btn btn-primary">Sign In</button>
+							
+							<a href=""><img src="../assets/img/facebook_signin_default.png" th:src="@{/assets/img/facebook_signin_default.png}"/></a>
+							<a href=""><img src="../assets/img/twitter_signin_default.png" th:src="@{/assets/img/twitter_signin_default.png}"/></a>
+							
+					</fieldset>
+				</form>
+				
+				
+				
+			</div>				
+			
+			
+			<div class="span6">
+				<div class="well">
+					<h1>Register Now</h1>
+				</div>
+			</div>
+			
+		</div>
+		
+		<footer th:substituteby="fragment/common::footer"></footer>
+	</div>
+
+</body>
+</html>
