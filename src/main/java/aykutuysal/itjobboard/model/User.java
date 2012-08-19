@@ -11,6 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -24,16 +28,30 @@ public class User implements Serializable {
 	private Long id;
 	
 	@Column(unique=true)
+	@NotEmpty
+	@Pattern(regexp = ".+@.+\\.[a-z]+")
 	private String email;
 
 	private String password;
+	
+	@NotNull
+	@NotEmpty
 	private String firstName;
+	
+	@NotNull
+	@NotEmpty
 	private String lastName;
+	
+	@NotNull
+	@NotEmpty
 	private String title;
+	
+	@Pattern(regexp = "[0-9]+")
 	private String phone;
+	
 	private String countryId;
 	private String role;
-	private Boolean enabled;
+	private Boolean enabled = true;
 	
 	private Date registrationDate = new Date();
 	
@@ -150,4 +168,16 @@ public class User implements Serializable {
 	public void setResumes(List<Resume> resumes) {
 		this.resumes = resumes;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", password=" + password
+				+ ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", title=" + title + ", phone=" + phone + ", countryId="
+				+ countryId + ", role=" + role + ", enabled=" + enabled
+				+ ", registrationDate=" + registrationDate + ", applications="
+				+ applications + ", resumes=" + resumes + "]";
+	}
+	
+	
 }

@@ -35,4 +35,5 @@ public class UserServiceImpl implements UserService {
 	public User getByEmail(String email) {
 		return userDao.getByEmail(email);
 	}
+	
 }

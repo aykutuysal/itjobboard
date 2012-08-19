@@ -8,6 +8,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import aykutuysal.itjobboard.model.User;
+
 
 @Controller
 public class AuthController {
@@ -28,6 +30,8 @@ public class AuthController {
 	
 	@RequestMapping(value="/signup", method = RequestMethod.GET)
 	public String signup(ModelMap model) {
+		logger.info("AuthController#signup() working");
+		model.put("user", new User());
 		return "signup";
 	}
 

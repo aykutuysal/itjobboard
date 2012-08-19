@@ -12,6 +12,7 @@ import aykutuysal.itjobboard.model.User;
 public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public User getByEmail(String email) {
 		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(persistentClass);
 		criteria.add(Restrictions.eq("email", email));

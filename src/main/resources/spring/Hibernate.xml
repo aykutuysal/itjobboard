@@ -50,5 +50,20 @@
 	</bean>
     
    	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
-
+	
+	<!-- JSR-303 Bean Validation wrapper for spring. Used at controller with @Valid -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+	
+	<!--  
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="webBindingInitializer">
+			<bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+				<property name="validator" ref="validator" />
+			</bean>
+		</property>
+	</bean>
+	-->
+	
+	
+	
 </beans>

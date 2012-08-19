@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import aykutuysal.itjobboard.model.User;
+
 public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter{
 	 
 	private static final Logger logger = Logger.getLogger(ExecuteTimeInterceptor.class);
@@ -18,6 +20,7 @@ public class ExecuteTimeInterceptor extends HandlerInterceptorAdapter{
  
 		return true;
 	}
+	
  
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
  

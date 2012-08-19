@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
 	<context:annotation-config/>
-	<mvc:annotation-driven />
+	<mvc:annotation-driven/>
 	
 	<context:component-scan base-package="aykutuysal.itjobboard" />
 	<context:property-placeholder location="classpath*:/properties/*.properties"/> 
