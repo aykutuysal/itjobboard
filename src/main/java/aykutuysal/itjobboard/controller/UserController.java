@@ -33,7 +33,7 @@ public class UserController {
 	public String register( @ModelAttribute @Valid User user,
 							BindingResult bindingResult,
 							ModelMap model) {
-		logger.info("UserController#register() working");
+		logger.debug("UserController#register() working");
 		
 		if(bindingResult.hasErrors()) {
 			List<ObjectError> errors = bindingResult.getAllErrors();

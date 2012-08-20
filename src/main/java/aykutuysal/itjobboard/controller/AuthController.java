@@ -30,7 +30,7 @@ public class AuthController {
 	
 	@RequestMapping(value="/signup", method = RequestMethod.GET)
 	public String signup(ModelMap model) {
-		logger.info("AuthController#signup() working");
+		logger.debug("AuthController#signup() working");
 		model.put("user", new User());
 		return "signup";
 	}
