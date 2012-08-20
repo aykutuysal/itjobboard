@@ -2,7 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	  xmlns:th="http://www.thymeleaf.org">
 
-<head th:substituteby="fragment/common::headFragment">
+<head>
+	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" th:href="@{/assets/css/bootstrap.min.css}" />
+	<link rel="stylesheet" href="../../../assets/css/token-input.css" th:href="@{/assets/css/token-input.css}" />
+	<link rel="stylesheet" href="../../../assets/css/token-input-facebook.css" th:href="@{/assets/css/token-input-facebook.css}" />
+	
+	<script src="../../../assets/js/jquery-1.8.0.min.js" th:src="@{/assets/js/jquery-1.8.0.min.js}" ></script>	
+	<script src="../../../assets/js/bootstrap-dropdown.js" th:src="@{/assets/js/bootstrap-dropdown.js}" ></script>
+	<script src="../../../assets/js/bootstrap-alert.js" th:src="@{/assets/js/bootstrap-alert.js}" ></script>
+	<script src="../../../assets/js/jquery-ui-1.8.23.custom.min.js" th:src="@{/assets/js/jquery-ui-1.8.23.custom.min.js}" ></script>
+	<script src="../../../assets/js/jquery.tokeninput.js" th:src="@{/assets/js/jquery.tokeninput.js}" ></script>
 </head>
 
 <body>
@@ -18,7 +27,7 @@
 			
 					
 				
-				<form class="form-horizontal well">
+				<form class="form-horizontal well" th:action="@{/search/}" method="get">
 					<fieldset>
 						<legend>
 							Search for 1262 IT Jobs
@@ -32,15 +41,25 @@
 				          
 				          <div class="control-group">
 							<h2>Location:</h2>
-				            <input type="text" class="input-xxlarge" id="location"></input>
+				            <input type="text" class="input-xxlarge" id="locations"></input>
 				            <p class="help-block">Enter a city or region, or select one of the locations that are automatically suggested while you are typing</p>
 				          </div>
+				          
+				          <script type="text/javascript">
+					        $(document).ready(function() {
+					        	$("#locations").tokenInput("http://localhost:8080/ItJobBoard/search/locationAutoComplete", {
+					                theme: "facebook"
+					            });
+					        });
+				        </script>
 				          
 				          <div class="form-actions">
 				            <button type="submit" class="btn-large btn-primary">SEARCH</button>
 				          </div>
 					</fieldset>
 				</form>
+				
+				
 
 			</div>
 			
