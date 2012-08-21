@@ -10,11 +10,52 @@
 	<div class="container">
 		<section th:substituteby="fragment/common::navbarFragment"></section>
 		
-		<div class="row-fluid">
+		<div class="row">
 			
-			<div class="span6">
+			<div class="span8 offset2">
 				
 						
+				<form class="form-horizontal well" th:action="@{/j_spring_security_check}" method="post">
+			
+					<legend>Sign In</legend>
+					<div id="signinError" th:if="${signinError}" class="alert alert-error">
+						<a class="close" data-dismiss="alert" href="#">&times;</a>
+						Wrong Username/Email and password combination.
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="j_username">Email</label>
+						<div class="controls">
+							<input type="text" name="j_username" id="j_username" placeholder="Email" />
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="j_password">Password</label>
+						<div class="controls">
+							<input type="password" name="j_password" id="j_password" placeholder="Password" />
+						</div>
+					</div>
+					
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<input type="checkbox" /> Remember me
+							</label>
+							<button type="submit" class="btn-large btn-primary">Sign in</button>
+							<p>
+								<br />
+								<a href=""><img src="../assets/img/facebook_signin_default.png" th:src="@{/assets/img/facebook_signin_default.png}"/></a>
+								<a href=""><img src="../assets/img/twitter_signin_default.png" th:src="@{/assets/img/twitter_signin_default.png}"/></a>
+							</p>
+						</div>
+					</div>
+					
+
+							
+				</form>
+
+				<!--  
 				<form class="well" th:action="@{/j_spring_security_check}" method="post">
 					<fieldset>
 					<legend>Sign In</legend>
@@ -44,22 +85,13 @@
 							
 							<button type="submit" class="btn btn-primary">Sign In</button>
 							
-							<a href=""><img src="../assets/img/facebook_signin_default.png" th:src="@{/assets/img/facebook_signin_default.png}"/></a>
-							<a href=""><img src="../assets/img/twitter_signin_default.png" th:src="@{/assets/img/twitter_signin_default.png}"/></a>
-							
 					</fieldset>
 				</form>
-				
+				-->
 				
 				
 			</div>				
-			
-			
-			<div class="span6">
-				<div class="well">
-					<h1>Register Now</h1>
-				</div>
-			</div>
+		
 			
 		</div>
 		
