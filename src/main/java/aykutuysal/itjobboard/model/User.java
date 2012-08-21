@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
@@ -59,6 +61,7 @@ public class User implements Serializable {
 	private List<Application> applications;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@Cascade({CascadeType.SAVE_UPDATE})
 	private List<Resume> resumes;
 	
 	public User() {

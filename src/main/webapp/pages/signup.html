@@ -18,7 +18,7 @@
 				<p th:if="${duplicateEmailError}">Already registered!</p>
 				<p th:if="${signupSuccess}">Signup successful. Check your email.</p>
 			
-				<form class="form-horizontal well" th:action="@{/user/register}" th:object="${user}" method="post"> 
+				<form class="form-horizontal well" th:action="@{/user/register}" th:object="${userRegistration}" method="post" enctype="multipart/form-data"> 
 					<fieldset>
 						<legend>
 							Sign Up For Job Opportunities
@@ -42,18 +42,34 @@
 						</div>
 				        
 						<!--   PASSWORD   -->
-				        <div class="control-group">
+				        <div class="control-group" th:unless="${#fields.hasErrors('password')}">
 							<label class="control-label" for="password">Password</label>
 							<div class="controls">
 								<input type="password" class="input-xlarge" name="password" id="password" />
 							</div>
 						</div>
+						
+						<div class="control-group error" th:if="${#fields.hasErrors('password')}">
+							<label class="control-label" for="password">Password</label>
+							<div class="controls">
+								<input type="password" class="input-xlarge" name="password" id="password" />
+								<span th:if="${#fields.hasErrors('password')}" class="help-inline">Please enter at least 6 characters</span>
+							</div>
+						</div>
 				        
 				        <!--   CONFIRM PASSWORD   -->
-				        <div class="control-group">
+				        <div class="control-group" th:unless="${#fields.hasErrors('confirmPassword')}">
 							<label class="control-label" for="confirmPassword">Confirm Password</label>
 							<div class="controls">
 								<input type="password" class="input-xlarge" name="confirmPassword" id="confirmPassword" />
+							</div>
+						</div>
+						
+						<div class="control-group error" th:if="${#fields.hasErrors('confirmPassword')}">
+							<label class="control-label" for="confirmPassword">Confirm Password</label>
+							<div class="controls">
+								<input type="password" class="input-xlarge" name="confirmPassword" id="confirmPassword" />
+								<span th:if="${#fields.hasErrors('confirmPassword')}" class="help-inline">Please enter at least 6 characters</span>
 							</div>
 						</div>
 						
@@ -122,7 +138,7 @@
 						</div>
 						
 						<!--   RESUME   -->
-						<div class="control-group">
+						<div class="control-group" th:unless="${#fields.hasErrors('resume')}">
 							<label class="control-label" for="resume">Attach Your Resume</label>
 							<div class="controls">
 								<input class="input-file" name="resume" id="resume" type="file" />
@@ -130,6 +146,14 @@
 							</div>
 						</div>
 						
+						<div class="control-group error" th:if="${#fields.hasErrors('resume')}">
+							<label class="control-label" for="resume">Attach Your Resume</label>
+							<div class="controls">
+								<input class="input-file" name="resume" id="resume" type="file" />
+								<p class="help-block">We accept .PDF / .DOCX / .DOC / .TXT / .RTF / .WP files up to 2Mb</p>									
+								<span th:if="${#fields.hasErrors('reume')}" class="help-inline">You must upload a resume</span>
+							</div>
+						</div>
 
 						<!--   SUBSCRIBE   -->
 						<div class="control-group">

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import aykutuysal.itjobboard.model.User;
+import aykutuysal.itjobboard.model.dto.UserRegistration;
 
 
 @Controller
@@ -31,7 +32,7 @@ public class AuthController {
 	@RequestMapping(value="/signup", method = RequestMethod.GET)
 	public String signup(ModelMap model) {
 		logger.debug("AuthController#signup() working");
-		model.put("user", new User());
+		model.put("userRegistration", new UserRegistration());
 		return "signup";
 	}
 
