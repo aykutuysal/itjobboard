@@ -1,61 +1,70 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" th:href="@{/assets/css/bootstrap.min.css}" />
+	<link rel="stylesheet" href="../../../assets/css/token-input.css" th:href="@{/assets/css/token-input.css}" />
+	<link rel="stylesheet" href="../../../assets/css/token-input-facebook.css" th:href="@{/assets/css/token-input-facebook.css}" />
 	
-	<script src="../../../assets/js/jquery-2.1.0.min.js" th:src="@{/assets/js/jquery-2.1.0.min.js}"></script>
-	<script src="../../../assets/js/bootstrap-dropdown.js" th:src="@{/assets/js/bootstrap-dropdown.js}"></script>
-	<script src="../../../assets/js/bootstrap-alert.js" th:src="@{/assets/js/bootstrap-alert.js}"></script>
-	<script src="../../../assets/js/jquery-ui.min.js" th:src="@{/assets/js/jquery-ui.min.js}"></script>
+	<script src="../../../assets/js/jquery-1.8.0.min.js" th:src="@{/assets/js/jquery-1.8.0.min.js}" ></script>	
+	<script src="../../../assets/js/bootstrap-dropdown.js" th:src="@{/assets/js/bootstrap-dropdown.js}" ></script>
+	<script src="../../../assets/js/bootstrap-alert.js" th:src="@{/assets/js/bootstrap-alert.js}" ></script>
+	<script src="../../../assets/js/jquery-ui-1.8.23.custom.min.js" th:src="@{/assets/js/jquery-ui-1.8.23.custom.min.js}" ></script>
+	<script src="../../../assets/js/jquery.tokeninput.js" th:src="@{/assets/js/jquery.tokeninput.js}" ></script>
 </head>
 
 <body>
 
 	<div class="container">
 		<section th:substituteby="fragment/common::navbarFragment"></section>
-
-		<div class="row-fluid">
-
+		
+		<div class="row-fluid" >
+		
 			<div th:substituteby="fragment/common::sidebarFragment"></div>
-
+			
 			<div class="span8">
-
+			
+					
+				
+				<form class="form-horizontal well" th:action="@{/search/}" method="get">
 					<fieldset>
-						<legend> Home Content </legend>
+						<legend>
+							Search for 1262 IT Jobs
+						</legend>
 						
-						<div class="well">
-							Login to see the latest jewelery information
-						</div>
-						
-						<div class="well">
-							<h2>API Design</h2>
-							<p>(GET) /api/v1/jewelry  --  list all jewelry data</p>
-							<p>(GET) /api/v1/jewelry/{id}  --  get single jewelry data</p>
-							<p>(POST) /api/v1/jewelry  --  save jewelry</p>
-							<p>(DELETE) /api/v1/jewelry/{id}  --  deletes single jewelry</p>
-						</div>
-						
-						<div class="well">
-							<p>Normal users have ROLE_USER role. Admins have ROLE_ADMIN role.</p>
-							<p>Add Jewelry Page is only for ROLE_ADMIN users</p>
-						</div>
-						
-						<div class="well">
-							<p>Server side validations added to user register form. JSR 303</p>
-						</div>
-
-
-												
+						<div class="control-group">
+							<h2>Keywords:</h2>
+				            <input type="text" class="input-xxlarge"  id="keywords"></input>
+				            <p class="help-block">Enter keywords like PHP, Java, Developer or a company name</p>
+				          </div>
+				          
+				          <div class="control-group">
+							<h2>Location:</h2>
+				            <input type="text" class="input-xxlarge" id="locations"></input>
+				            <p class="help-block">Enter a city or region, or select one of the locations that are automatically suggested while you are typing</p>
+				          </div>
+				          
+				          <script type="text/javascript">
+					        $(document).ready(function() {
+					        	$("#locations").tokenInput("@{search/locationAutoComplete}", {
+					                theme: "facebook"
+					            });
+					        });
+				        </script>
+				          
+				          <div class="form-actions">
+				            <button type="submit" class="btn-large btn-primary">SEARCH</button>
+				          </div>
 					</fieldset>
-
-
+				</form>
+				
+				
 
 			</div>
-
+			
 		</div>
-
+		
 		<footer th:substituteby="fragment/common::footer"></footer>
 	</div>
 

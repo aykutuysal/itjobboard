@@ -21,6 +21,12 @@
 						      <img src="http://placehold.it/160x120" alt=""></img>
 						</div>
 					</div>
+
+					<div class="row-fluid">
+						<p>
+							<strong>Email: </strong> 
+						</p>
+					</div>
 					
 					
 				</div><!--/.well -->
@@ -32,18 +38,45 @@
 					
 				<div class="row-fluid">		
 					<div class="span12 well">
-						<h3>List Jewelries</h3>
-						<a th:href="@{/jewelry/list}">Click to see online jewelry information</a>
+						<h3>Contact Details</h3>
+						<a th:href="@{/me/editcontact}">View/Edit your contact details</a>
 					</div>
 				</div>
 				
 				<div class="row-fluid">		
 					<div class="span12 well">
-						<h3>Jewelry API</h3>
-						<a th:href="@{/api/v1/jewelry}">Jewelry API for developers</a>
+						<h3>Jobs By Email (0)</h3>
+						<a th:href="@{/me/jobsbyemail}">Set up Jobs by Email to get the latest jobs direct to your mailbox.</a>
 					</div>
 				</div>
 				
+				<div class="row-fluid">		
+					<div class="span12 well">
+						<h3>Shortlist (0)</h3>
+						<a th:href="@{/me/shortlist}">View your list of saved jobs</a>
+					</div>
+				</div>
+				
+				<div class="row-fluid">		
+					<div class="span12 well">
+						<h3>Saved Searches (0)</h3>
+						<a th:href="@{/me/savedsearches}">Maintain your list of saved searches.</a>
+					</div>
+				</div>
+				
+				<div class="row-fluid">		
+					<div class="span12 well">
+						<h3>Previous Applications (0)</h3>
+						<a th:href="@{/me/history}">View your application history</a>
+					</div>
+				</div>
+				
+				<div class="row-fluid">		
+					<div class="span12 well">
+						<h3>Saved CV's (1)</h3>
+						<a th:href="@{/me/cvs}">Upload multiple CVs to your account which can be used when applying for a job</a>
+					</div>
+				</div>
 				
 			</div>
 			

@@ -7,10 +7,7 @@
 						http://www.springframework.org/schema/security/spring-security-3.1.xsd">
  
 	<http auto-config="true">
-		<intercept-url pattern="/me" access="ROLE_USER, ROLE_ADMIN" />
-		<intercept-url pattern="/jewelry/list" access="ROLE_USER, ROLE_ADMIN" />
-		<intercept-url pattern="/api/v1/*" access="ROLE_USER, ROLE_ADMIN" />
-		<intercept-url pattern="/jewelry/add" access="ROLE_ADMIN" />
+		<intercept-url pattern="/me" access="ROLE_USER" />
 		<form-login 
 			login-page="/signin" 
 			default-target-url="/me"
@@ -23,7 +20,7 @@
 		<authentication-provider>
 			   
 			<jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select email as username, password, status from Users where email = ?" 
+				users-by-username-query="select email as username, password, enabled from Users where email = ?" 
 				authorities-by-username-query="select email as username, role from Users where email = ?" 
 			/>
 			

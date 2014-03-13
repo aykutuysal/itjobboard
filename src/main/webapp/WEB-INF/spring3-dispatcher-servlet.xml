@@ -12,7 +12,7 @@
 	<context:annotation-config/>
 	<mvc:annotation-driven/>
 	
-	<context:component-scan base-package="aykutuysal.jewel" />
+	<context:component-scan base-package="aykutuysal.itjobboard" />
 	<context:property-placeholder location="classpath*:/properties/*.properties"/> 
 	
 	<mvc:resources location="/assets/img/" mapping="/assets/img/**" /> 
@@ -20,8 +20,8 @@
 	<mvc:resources location="/assets/js/" mapping="/assets/js/**" />
 	
 	<mvc:interceptors> 
-		<bean class="aykutuysal.jewel.interceptor.SecurityInterceptor" />
-		<bean class="aykutuysal.jewel.interceptor.ExecuteTimeInterceptor" />
+		<bean class="aykutuysal.itjobboard.interceptor.SecurityInterceptor" />
+		<bean class="aykutuysal.itjobboard.interceptor.ExecuteTimeInterceptor" />
 		
 	</mvc:interceptors>
 	
