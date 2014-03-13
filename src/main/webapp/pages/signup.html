@@ -14,14 +14,25 @@
 		
 
 			<div class="span10 offset1">
-					
-				<p th:if="${duplicateEmailError}">Already registered!</p>
-				<p th:if="${signupSuccess}">Signup successful. Check your email.</p>
-			
+				
+
+				
+				<div th:if="${signupSuccess}" class="alert alert-success">
+					<p>Successfully registered. A confirmation email has been sent. Your account will be activated after confirming your email.</p>
+				</div>
+				
+				<div th:if="${passNotMatchError}" class="alert alert-danger">
+					<p>Given passwords do not match. Please check the passwords.</p>
+				</div>
+				
+				<div th:if="${duplicateEmailError}" class="alert alert-danger">
+					<p>Already registered!</p>
+				</div>	
+				
 				<form class="form-horizontal well" th:action="@{/user/register}" th:object="${userRegistration}" method="post" enctype="multipart/form-data"> 
 					<fieldset>
 						<legend>
-							Sign Up For Job Opportunities
+							Sign Up For Latest Jewelry Information
 						</legend>
 						
 						<!--   EMAIL   -->
@@ -73,32 +84,16 @@
 							</div>
 						</div>
 						
-				        <!--   TITLE   -->
-						<div class="control-group">
-							<label class="control-label" for="title">Title</label>
-							<div class="controls">
-								<select name="title" id="title">
-									<option>Please Select</option>
-									<option>Mr</option>
-									<option>Ms</option>
-									<option>Miss</option>
-									<option>Mrs</option>
-									<option>Dr</option>
-									<option>Prof</option>
-								</select>
-							</div>
-						</div>
-						
 						<!--   FIRST NAME   -->
 						<div class="control-group" th:unless="${#fields.hasErrors('firstName')}">
-							<label class="control-label" for="firstName">First Same</label>
+							<label class="control-label" for="firstName">First Name</label>
 							<div class="controls">
 								<input type="text" class="input-xlarge" name="firstName" id="firstName" />
 							</div>
 						</div>
 						
 						<div class="control-group error" th:if="${#fields.hasErrors('firstName')}">
-							<label class="control-label" for="firstName">First Same</label>
+							<label class="control-label" for="firstName">First Name</label>
 							<div class="controls">
 								<input type="text" class="input-xlarge" name="firstName" id="firstName" />
 								<span th:if="${#fields.hasErrors('firstName')}" class="help-inline">Please enter your first name</span>
@@ -137,34 +132,6 @@
 							</div>
 						</div>
 						
-						<!--   RESUME   -->
-						<div class="control-group" th:unless="${#fields.hasErrors('resume')}">
-							<label class="control-label" for="resume">Attach Your Resume</label>
-							<div class="controls">
-								<input class="input-file" name="resume" id="resume" type="file" />
-								<p class="help-block">We accept .PDF / .DOCX / .DOC / .TXT / .RTF / .WP files up to 2Mb</p>
-							</div>
-						</div>
-						
-						<div class="control-group error" th:if="${#fields.hasErrors('resume')}">
-							<label class="control-label" for="resume">Attach Your Resume</label>
-							<div class="controls">
-								<input class="input-file" name="resume" id="resume" type="file" />
-								<p class="help-block">We accept .PDF / .DOCX / .DOC / .TXT / .RTF / .WP files up to 2Mb</p>									
-								<span th:if="${#fields.hasErrors('reume')}" class="help-inline">You must upload a resume</span>
-							</div>
-						</div>
-
-						<!--   SUBSCRIBE   -->
-						<div class="control-group">
-							<label class="control-label" for="subscription">Subscribe</label>
-							<div class="controls">
-								<label class="checkbox">
-									<input type="checkbox" name="subscription" id="subscription" value="true" />
-									I'd like to subscribe to newsletter and receive the latest information about this site.
-								</label>
-							</div>
-						</div>
 						
 						<div class="form-actions">
 							<button type="submit" class="btn-large btn-primary">Sign Up</button>

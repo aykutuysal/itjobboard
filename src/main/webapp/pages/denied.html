@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head th:substituteby="fragment/common::headFragment">
+</head>
+
+<body>
+
+	<div class="container">
+		<section th:substituteby="fragment/common::navbarFragment"></section>
+		
+			<div class="row" >
+		
+				<div class="span10 offset1">
+				
+					<div class="alert alert-danger">
+						<p>Access Denied. Only For Admins!</p>
+					</div>
+				</div>
+			</div>
+			
+		<footer th:substituteby="fragment/common::footer"></footer>
+	</div>
+
+</body>
+</html>

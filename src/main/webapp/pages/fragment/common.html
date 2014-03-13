@@ -3,7 +3,7 @@
 	  xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="headFragment">
 	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" th:href="@{/assets/css/bootstrap.min.css}" />
-	<script src="../../../assets/js/jquery-1.8.0.min.js" th:src="@{/assets/js/jquery-1.8.0.min.js}" ></script>	
+	<script src="../../../assets/js/jquery-2.1.0.min.js" th:src="@{/assets/js/jquery-2.1.0.min.js}" ></script>	
 	<script src="../../../assets/js/bootstrap-dropdown.js" th:src="@{/assets/js/bootstrap-dropdown.js}" ></script>
 	<script src="../../../assets/js/bootstrap-alert.js" th:src="@{/assets/js/bootstrap-alert.js}" ></script>
 </head>
@@ -19,13 +19,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<a class="brand" th:href="@{/}">It Job Board</a>
+					<a class="brand" th:href="@{/}">JEWEL</a>
 					<div class="nav-collapse">
 						<ul class="nav">
 							<li class="active"><a th:href="@{/}">Home</a></li>
-							<li><a href="#">Browse Jobs</a></li>
-							<li><a href="#">Recruiters</a></li>
-							<li><a href="#">Press</a></li>
+							<li><a th:href="@{/jewelry/list}">Jewelry List</a></li>
+							<li><a th:href="@{/api/v1/jewelry}">Jewelry API</a></li>
+							<li><a th:href="@{/jewelry/add}">Add Jewelry(For Admins)</a></li>
 						</ul>
 						<ul class="nav pull-right">
 							<li class="divider-vertical"></li>
@@ -33,11 +33,10 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"  th:text="${sec.principal.username}"> <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a th:href="@{/me}">My Account</a></li>
-									<li><a th:href="@{/me/jobsbyemail}">Jobs By Email</a></li>
-									<li><a th:href="@{/me/shortlist}">Shortlist</a></li>
-									<li><a th:href="@{/me/savedsearches}">Saved Searches</a></li>
+									<li><a th:href="@{/jewelry/list}">Jewelries</a></li>
+									<li><a th:href="@{/api/v1/jewelry}">For developers</a></li>
 									<li class="divider"></li>
-									<li><a href="j_spring_security_logout"> Logout</a></li>
+									<li><a th:href="@{/j_spring_security_logout}">Logout</a></li>
 								</ul>
 							</li>
 							<li th:if="${sec.principal == 'anonymousUser'}">
@@ -59,10 +58,10 @@
 			<ul class="nav nav-list">
 			
 				<li class="active"><a href="#">Register</a></li>
-				<li><a href="#">Jobs By Email</a></li>
-				<li><a href="#">Upload Your CV</a></li>
+				<li><a href="#">Link 1</a></li>
+				<li><a href="#">Link 2</a></li>
 				
-				<li class="nav-header">Recruiting Now</li>
+				<li class="nav-header">Header 1</li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
@@ -73,7 +72,7 @@
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
 				
-				<li class="nav-header">Follow Us</li>
+				<li class="nav-header">Header 2</li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
 				<li><a href="#"></a></li>
@@ -87,7 +86,7 @@
 	<footer id="footer" th:fragment="footer">
 		<div class="span12" style="margin:0px">
 	      <div class="well">
-	        <span>Copyright 2012</span>
+	        <span>Copyright 2014 - Render Time: </span>
 	       	(<span th:text="${+executeTime}"></span> ms)
 	      </div>
 	    </div>
